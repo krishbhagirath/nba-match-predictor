@@ -12,7 +12,7 @@ This project uses machine learning to predict the outcome of NBA games using his
 
 ## 📊 Results
 
-- Accuracy: ~55%
+- Accuracy: ~65% (with rolling average implementation)
 - Baseline (home team always wins): ~57%
 - Indicates potential for further optimization and tuning
 
