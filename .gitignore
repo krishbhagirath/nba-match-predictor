@@ -1,1 +1,33 @@
 notes
+
+# Frontend dependencies and build files
+frontend/node_modules/
+frontend/.pnp
+frontend/.pnp.js
+
+# Frontend testing
+frontend/coverage/
+
+# Frontend production build
+frontend/build/
+
+# Frontend environment files
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Frontend logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Frontend IDE files
+frontend/.vscode/
+frontend/.idea/
+frontend/*.swp
+frontend/*.swo
+
+# Frontend OS files
+frontend/.DS_Store
+frontend/Thumbs.db

@@ -1,0 +1,77 @@
+.home-page {
+  min-height: 100vh;
+}
+
+/* Wraps logo + text */
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;    /* centers the whole block on the page */
+  gap: 16px;                  /* space between logo and text */
+  margin-bottom: 20px;
+}
+
+/* Image logo (separate from your old .nba-logo text styles) */
+.brand-logo {
+  height: 200px;               /* tweak as needed */
+  width: auto;
+  flex-shrink: 0;             /* keep logo from shrinking */
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,.25));
+}
+
+/* Keep the text aligned left while the entire block is centered */
+.home-text {
+  text-align: left;
+}
+
+/* Optional: tighten big headline line-height next to a logo */
+.project-title {
+  line-height: 1.1;
+}
+
+/* Responsive: stack logo above text on small screens */
+@media (max-width: 640px) {
+  .home-header {
+    flex-direction: column;
+    text-align: center;       /* re-center text when stacked */
+  }
+  .home-text {
+    text-align: center;
+  }
+}
+
+
+.project-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeIn 2s ease-out 1s forwards;
+  text-align: center;
+  color: var(--nba-white);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.project-info {
+  margin-top: 3rem;
+  opacity: 0;
+  animation: fadeIn 2s ease-out 2s forwards;
+}
+
+.project-info p {
+  font-size: 1.1rem;
+  color: var(--nba-white);
+  text-align: center;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Enhanced NBA Logo Styling */
+.nba-logo {
+  font-size: 8rem;
+  background: linear-gradient(45deg, var(--nba-red), var(--nba-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+} 
