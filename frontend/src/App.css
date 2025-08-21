@@ -1,10 +1,13 @@
-/* NBA Color Scheme */
+/* NBA Color Scheme - Updated Theme */
 :root {
   --nba-red: #c8102e;
   --nba-blue: #1d428a;
+  --nba-navy: #0a1428;
   --nba-white: #ffffff;
   --nba-light-blue: #4a90e2;
-  --nba-light-red: #e74c3c;
+  --nba-light-gray: #f8f9fa;
+  --nba-dark-gray: #2c3e50;
+  --nba-black: #000000;
 }
 
 * {
@@ -14,26 +17,22 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(
-    135deg,
-    #FFFFFF 0%,     /* Start white */
-    #1D428A 80%    /* Fade into deep NBA blue */
-  );
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  background: var(--nba-white);
   min-height: 100vh;
-  color: #FFFFFF; /* White text for contrast on blue */
+  color: var(--nba-navy);
+  line-height: 1.6;
 }
-
 
 .App {
   text-align: center;
 }
 
-/* Navigation */
+/* Navigation - Updated with new theme */
 .nav {
-  background: rgba(29, 66, 138, 0.9);
+  background: var(--nba-navy);
   padding: 1rem 0;
-  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(10, 20, 40, 0.15);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -50,9 +49,14 @@ body {
 
 .nav-logo {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 800;
   color: var(--nba-white);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .nav-links {
@@ -63,17 +67,36 @@ body {
 .nav-link {
   color: var(--nba-white);
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
   transition: all 0.3s ease;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
 }
 
 .nav-link:hover {
-  background: var(--nba-red);
+  background: var(--nba-blue);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(29, 66, 138, 0.3);
 }
 
-/* Home Page */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.nav-link:hover::before {
+  left: 100%;
+}
+
+/* Home Page - Updated styling */
 .home-container {
   min-height: 100vh;
   display: flex;
@@ -81,15 +104,20 @@ body {
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  background: linear-gradient(135deg, var(--nba-white) 0%, var(--nba-light-gray) 100%);
 }
 
 .project-title {
-  font-size: 4rem;
-  font-weight: bold;
+  font-size: 4.5rem;
+  font-weight: 900;
   margin-bottom: 2rem;
   text-align: center;
   animation: fadeInUp 2s ease-out;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: var(--nba-navy);
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: -1px;
+  text-shadow: 2px 2px 4px rgba(10, 20, 40, 0.1);
+  line-height: 1.1;
 }
 
 .nba-logo {
@@ -100,29 +128,49 @@ body {
 }
 
 .cta-button {
-  background: linear-gradient(45deg, var(--nba-red), var(--nba-blue));
+  background: linear-gradient(45deg, var(--nba-blue), var(--nba-navy));
   color: var(--nba-white);
   border: none;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.3rem;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
   margin-top: 2rem;
+  font-weight: 700;
+  box-shadow: 0 8px 25px rgba(29, 66, 138, 0.3);
+  position: relative;
+  overflow: hidden;
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 35px rgba(29, 66, 138, 0.4);
 }
 
-/* Games Page */
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+/* Games Page - Updated styling */
 .games-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  background: var(--nba-white);
 }
 
 .games-header {
@@ -131,9 +179,19 @@ body {
 }
 
 .games-header h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: var(--nba-navy);
+  font-weight: 900;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 4px rgba(10, 20, 40, 0.1);
+}
+
+.games-header p {
+  font-size: 1.3rem;
+  color: var(--nba-dark-gray);
+  font-weight: 500;
 }
 
 .games-content {
@@ -144,34 +202,40 @@ body {
 
 .games-section {
   flex: 1;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
+  background: var(--nba-light-gray);
+  border-radius: 20px;
   padding: 2rem;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(10, 20, 40, 0.1);
+  border: 1px solid rgba(29, 66, 138, 0.1);
+  transition: all 0.5s ease;
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 2rem;
-  color: var(--nba-white);
+  color: var(--nba-navy);
   text-align: center;
+  font-weight: 800;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .game-card {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
+  background: var(--nba-white);
+  border-radius: 15px;
   padding: 1.5rem;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(10, 20, 40, 0.08);
+  border: 1px solid rgba(29, 66, 138, 0.1);
 }
 
 .game-card:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(10, 20, 40, 0.15);
+  border-color: var(--nba-blue);
 }
 
 .team-info {
@@ -181,32 +245,42 @@ body {
 }
 
 .team-logo {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: var(--nba-white);
+  background: var(--nba-light-gray);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   color: var(--nba-blue);
+  border: 3px solid var(--nba-blue);
+  transition: all 0.3s ease;
+}
+
+.team-logo:hover {
+  transform: scale(1.1);
+  border-color: var(--nba-navy);
 }
 
 .team-name {
-  font-weight: bold;
-  color: var(--nba-white);
+  font-weight: 700;
+  color: var(--nba-navy);
+  font-size: 1.1rem;
 }
 
 .vs-text {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--nba-white);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--nba-blue);
   margin: 0 1rem;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .game-time {
-  color: var(--nba-white);
+  color: var(--nba-dark-gray);
   font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .prediction-result {
@@ -221,30 +295,32 @@ body {
 }
 
 .correct {
-  color: #2ecc71;
+  color: #27ae60;
 }
 
 .incorrect {
   color: #e74c3c;
 }
 
-/* Toggle Button */
+/* Toggle Button - Updated styling */
 .toggle-button {
-  background: linear-gradient(45deg, var(--nba-red), var(--nba-blue));
+  background: linear-gradient(45deg, var(--nba-blue), var(--nba-navy));
   color: var(--nba-white);
   border: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.2rem;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-bottom: 2rem;
   width: 100%;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(29, 66, 138, 0.3);
 }
 
 .toggle-button:hover {
-  transform: translateX(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(29, 66, 138, 0.4);
 }
 
 /* Animations */
@@ -277,6 +353,37 @@ body {
   }
 }
 
+@keyframes slideRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .games-content {
@@ -284,7 +391,7 @@ body {
   }
   
   .project-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   
   .nav-container {
@@ -294,5 +401,9 @@ body {
   
   .nav-links {
     gap: 1rem;
+  }
+  
+  .games-header h1 {
+    font-size: 2.5rem;
   }
 } 

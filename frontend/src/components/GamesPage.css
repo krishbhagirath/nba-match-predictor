@@ -1,110 +1,462 @@
 .games-page {
   min-height: 100vh;
+  background: var(--nba-white);
 }
 
-.prediction-stats {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 1rem;
+/* Calendar Navigation */
+.calendar-navigation {
+  display: flex;
+  justify-content: center;
   margin-bottom: 2rem;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.prediction-stats p {
+.nav-button {
+  background: linear-gradient(45deg, var(--nba-blue), var(--nba-navy));
+  color: var(--nba-white);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(29, 66, 138, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(29, 66, 138, 0.4);
+}
+
+.arrow {
   font-size: 1.2rem;
   font-weight: bold;
-  color: var(--nba-white);
 }
 
-.prediction-card {
-  flex-direction: column;
+/* Calendar Week View */
+.calendar-week {
+  background: var(--nba-light-gray);
+  border-radius: 25px;
+  padding: 2.5rem;
+  box-shadow: 0 15px 40px rgba(10, 20, 40, 0.1);
+  border: 1px solid rgba(29, 66, 138, 0.1);
+  transition: all 0.5s ease;
+}
+
+.week-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.week-header h2 {
+  font-size: 2.5rem;
+  color: var(--nba-navy);
+  font-weight: 900;
+  font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.week-header p {
+  font-size: 1.2rem;
+  color: var(--nba-dark-gray);
+  font-weight: 500;
+}
+
+/* Day Bubbles */
+.day-bubbles {
+  display: flex;
+  justify-content: space-between;
   gap: 1rem;
-  align-items: stretch;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
 }
 
-.prediction-details {
+.day-bubble {
+  background: var(--nba-white);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   align-items: center;
-  text-align: center;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(10, 20, 40, 0.08);
+  border: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
 }
 
-.prediction, .actual {
+.day-bubble:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(10, 20, 40, 0.15);
+  border-color: var(--nba-blue);
+}
+
+.day-bubble.selected {
+  background: linear-gradient(135deg, var(--nba-blue), var(--nba-navy));
   color: var(--nba-white);
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(29, 66, 138, 0.4);
+}
+
+.day-bubble.today {
+  border-color: var(--nba-red);
+  background: linear-gradient(135deg, var(--nba-white), var(--nba-light-gray));
+}
+
+.day-bubble.today.selected {
+  background: linear-gradient(135deg, var(--nba-blue), var(--nba-navy));
+  color: var(--nba-white);
+}
+
+.day-name {
   font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.day-date {
+  font-size: 2rem;
+  font-weight: 900;
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1;
+}
+
+.games-count {
+  font-size: 0.7rem;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* Selected Day Games */
+.selected-day-games {
+  background: var(--nba-white);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(10, 20, 40, 0.08);
+}
+
+.selected-day-title {
+  font-size: 1.8rem;
+  color: var(--nba-navy);
+  font-weight: 800;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: -0.5px;
+}
+
+.games-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.game-card {
+  background: var(--nba-light-gray);
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(10, 20, 40, 0.08);
+  border: 1px solid rgba(29, 66, 138, 0.1);
+}
+
+.game-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(10, 20, 40, 0.15);
+  border-color: var(--nba-blue);
+}
+
+.game-teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.team-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.team-info:last-child {
+  justify-content: flex-end;
+}
+
+.team-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--nba-white);
+  border: 3px solid var(--nba-blue);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.team-logo-container:hover {
+  transform: scale(1.1);
+  border-color: var(--nba-navy);
+}
+
+.team-logo-placeholder {
+  width: 40px;
+  height: 40px;
+  background: var(--nba-blue);
+  color: var(--nba-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.team-name {
+  font-weight: 700;
+  color: var(--nba-navy);
+  font-size: 1.2rem;
+  min-width: 100px;
+}
+
+.vs-text {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--nba-blue);
+  margin: 0 1.5rem;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .game-details {
   display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  align-items: center;
-  text-align: center;
-  min-width: 120px;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--nba-white);
+  border-radius: 10px;
 }
 
-.game-date {
-  font-weight: bold;
-  color: var(--nba-white);
-  font-size: 0.9rem;
+.game-time, .game-venue {
+  color: var(--nba-dark-gray);
+  font-weight: 600;
+  font-size: 1rem;
 }
 
-.game-venue {
-  color: var(--nba-white);
-  font-size: 0.8rem;
-  opacity: 0.8;
-}
-
-.backend-notes {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 2rem;
-  margin-top: 3rem;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.backend-notes h3 {
-  color: var(--nba-white);
-  margin-bottom: 1rem;
+.prediction-section {
+  background: var(--nba-white);
+  border-radius: 10px;
+  padding: 1.5rem;
   text-align: center;
 }
 
-.backend-notes ul {
-  list-style: none;
-  padding: 0;
+.prediction, .confidence {
+  color: var(--nba-navy);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-.backend-notes li {
-  color: var(--nba-white);
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.confidence-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--nba-light-gray);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.confidence-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--nba-blue), var(--nba-navy));
+  border-radius: 4px;
+  transition: width 0.8s ease;
+}
+
+.no-games {
   text-align: center;
+  padding: 3rem;
+  color: var(--nba-dark-gray);
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
-.backend-notes li:last-child {
-  border-bottom: none;
-}
-
-/* Enhanced animations for the toggle */
-.games-section {
+/* Last Week Section */
+.last-week-section {
+  background: var(--nba-light-gray);
+  border-radius: 25px;
+  padding: 2.5rem;
+  box-shadow: 0 15px 40px rgba(10, 20, 40, 0.1);
+  border: 1px solid rgba(29, 66, 138, 0.1);
   transition: all 0.5s ease;
 }
 
-.games-section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+.prediction-stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
 }
 
-/* Responsive adjustments for games page */
+.stat-card {
+  background: var(--nba-white);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(10, 20, 40, 0.08);
+  border: 1px solid rgba(29, 66, 138, 0.1);
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(10, 20, 40, 0.15);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--nba-navy);
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: var(--nba-dark-gray);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.prediction-details {
+  background: var(--nba-white);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.prediction-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+
+.prediction-row:last-child {
+  margin-bottom: 0;
+  border-top: 1px solid var(--nba-light-gray);
+  padding-top: 1rem;
+}
+
+.prediction, .actual, .confidence {
+  color: var(--nba-navy);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.prediction-result {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.result-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.correct {
+  color: #27ae60;
+}
+
+.incorrect {
+  color: #e74c3c;
+}
+
+.correct-text {
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.incorrect-text {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+/* Slide Animations */
+.slide-left {
+  animation: slideLeft 0.3s ease-out;
+}
+
+.slide-right {
+  animation: slideRight 0.3s ease-out;
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .game-card {
+  .day-bubbles {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .day-bubble {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .day-date {
+    font-size: 1.5rem;
+  }
+  
+  .day-name {
+    font-size: 0.8rem;
+  }
+  
+  .games-count {
+    font-size: 0.6rem;
+  }
+  
+  .game-teams {
     flex-direction: column;
-    text-align: center;
     gap: 1rem;
   }
   
@@ -112,7 +464,30 @@
     justify-content: center;
   }
   
-  .prediction-details {
+  .team-info:last-child {
+    justify-content: center;
+  }
+  
+  .prediction-stats {
+    flex-direction: column;
     align-items: center;
+  }
+  
+  .stat-card {
+    min-width: 200px;
+  }
+  
+  .prediction-row {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .calendar-week, .last-week-section {
+    padding: 1.5rem;
+  }
+  
+  .week-header h2 {
+    font-size: 2rem;
   }
 } 

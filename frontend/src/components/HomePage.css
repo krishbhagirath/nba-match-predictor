@@ -1,5 +1,6 @@
 .home-page {
   min-height: 100vh;
+  background: var(--nba-white);
 }
 
 /* Wraps logo + text */
@@ -7,16 +8,22 @@
   display: flex;
   align-items: center;
   justify-content: center;    /* centers the whole block on the page */
-  gap: 16px;                  /* space between logo and text */
-  margin-bottom: 20px;
+  gap: 24px;                  /* space between logo and text */
+  margin-bottom: 32px;
 }
 
 /* Image logo (separate from your old .nba-logo text styles) */
 .brand-logo {
-  height: 200px;               /* tweak as needed */
+  height: 220px;               /* tweak as needed */
   width: auto;
   flex-shrink: 0;             /* keep logo from shrinking */
-  filter: drop-shadow(2px 2px 4px rgba(0,0,0,.25));
+  filter: drop-shadow(4px 4px 8px rgba(10, 20, 40, 0.2));
+  transition: all 0.3s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(6px 6px 12px rgba(10, 20, 40, 0.3));
 }
 
 /* Keep the text aligned left while the entire block is centered */
@@ -27,6 +34,11 @@
 /* Optional: tighten big headline line-height next to a logo */
 .project-title {
   line-height: 1.1;
+  color: var(--nba-navy);
+  font-weight: 900;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: -1px;
+  text-shadow: 2px 2px 4px rgba(10, 20, 40, 0.1);
 }
 
 /* Responsive: stack logo above text on small screens */
@@ -40,15 +52,16 @@
   }
 }
 
-
 .project-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 2rem;
   opacity: 0;
   animation: fadeIn 2s ease-out 1s forwards;
   text-align: center;
-  color: var(--nba-white);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: var(--nba-dark-gray);
+  font-weight: 600;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .project-info {
@@ -58,20 +71,21 @@
 }
 
 .project-info p {
-  font-size: 1.1rem;
-  color: var(--nba-white);
+  font-size: 1.2rem;
+  color: var(--nba-dark-gray);
   text-align: center;
   line-height: 1.6;
   max-width: 600px;
   margin: 0 auto;
+  font-weight: 500;
 }
 
 /* Enhanced NBA Logo Styling */
 .nba-logo {
   font-size: 8rem;
-  background: linear-gradient(45deg, var(--nba-red), var(--nba-blue));
+  background: linear-gradient(45deg, var(--nba-blue), var(--nba-navy));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(2px 2px 4px rgba(10, 20, 40, 0.3));
 } 

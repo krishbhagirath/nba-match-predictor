@@ -25,8 +25,6 @@ const HomePage = () => {
 
       {/* Main Content */}
       <div className="home-container">
-        {/* NBA Logo - Using emoji for now, can be replaced with actual logo image */}
-        
         {/* Logo + text side-by-side */}
         <div className="home-header">
           <img
@@ -43,7 +41,6 @@ const HomePage = () => {
           </div>
         </div>
 
-        
         {/* Call to Action Button */}
         <Link to="/games" className="cta-button">
           View Games & Predictions
@@ -52,7 +49,7 @@ const HomePage = () => {
         {/* Additional Info */}
         <div className="project-info">
           <p>
-            Powered by cutting-edge AI algorithms to predict NBA game outcomes
+            Powered by cutting-edge AI algorithms to predict NBA game outcomes with confidence scores
           </p>
         </div>
       </div>
