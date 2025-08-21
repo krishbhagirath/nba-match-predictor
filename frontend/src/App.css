@@ -18,14 +18,18 @@
 
 body {
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  background: var(--nba-white);
+  background: transparent;
   min-height: 100vh;
-  color: var(--nba-navy);
+  color: var(--nba-white);
   line-height: 1.6;
 }
 
 .App {
   text-align: center;
+  position: relative;
+  z-index: 10;
+  background: transparent;
+  min-height: 100vh;
 }
 
 /* Navigation - Updated with new theme */
@@ -35,7 +39,7 @@ body {
   box-shadow: 0 2px 20px rgba(10, 20, 40, 0.15);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .nav-container {
@@ -104,7 +108,9 @@ body {
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  background: linear-gradient(135deg, var(--nba-white) 0%, var(--nba-light-gray) 100%);
+  color: var(--nba-white);  /* make all text inside white */
+  position: relative;
+  z-index: 30;
 }
 
 .project-title {
@@ -113,10 +119,10 @@ body {
   margin-bottom: 2rem;
   text-align: center;
   animation: fadeInUp 2s ease-out;
-  color: var(--nba-navy);
+  color: var(--nba-white);
   font-family: 'Segoe UI', sans-serif;
   letter-spacing: -1px;
-  text-shadow: 2px 2px 4px rgba(10, 20, 40, 0.1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   line-height: 1.1;
 }
 
@@ -143,6 +149,7 @@ body {
   box-shadow: 0 8px 25px rgba(29, 66, 138, 0.3);
   position: relative;
   overflow: hidden;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .cta-button:hover {
@@ -165,13 +172,7 @@ body {
   left: 100%;
 }
 
-/* Games Page - Updated styling */
-.games-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  background: var(--nba-white);
-}
+
 
 .games-header {
   text-align: center;
@@ -185,13 +186,14 @@ body {
   font-weight: 900;
   font-family: 'Segoe UI', sans-serif;
   letter-spacing: -0.5px;
-  text-shadow: 2px 2px 4px rgba(10, 20, 40, 0.1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .games-header p {
   font-size: 1.3rem;
   color: var(--nba-dark-gray);
   font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .games-content {
@@ -217,6 +219,7 @@ body {
   text-align: center;
   font-weight: 800;
   font-family: 'Segoe UI', sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .game-card {
@@ -267,6 +270,7 @@ body {
   font-weight: 700;
   color: var(--nba-navy);
   font-size: 1.1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .vs-text {
@@ -275,12 +279,14 @@ body {
   color: var(--nba-blue);
   margin: 0 1rem;
   font-family: 'Segoe UI', sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .game-time {
   color: var(--nba-dark-gray);
   font-size: 0.9rem;
   font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .prediction-result {

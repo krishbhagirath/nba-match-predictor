@@ -1,6 +1,8 @@
 .home-page {
   min-height: 100vh;
-  background: var(--nba-white);
+  background: transparent;
+  position: relative;
+  z-index: 20;
 }
 
 /* Wraps logo + text */
@@ -34,11 +36,11 @@
 /* Optional: tighten big headline line-height next to a logo */
 .project-title {
   line-height: 1.1;
-  color: var(--nba-navy);
+  color: var(--nba-white);
   font-weight: 900;
   font-family: 'Segoe UI', sans-serif;
   letter-spacing: -1px;
-  text-shadow: 2px 2px 4px rgba(10, 20, 40, 0.1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* Responsive: stack logo above text on small screens */
@@ -58,10 +60,11 @@
   opacity: 0;
   animation: fadeIn 2s ease-out 1s forwards;
   text-align: center;
-  color: var(--nba-dark-gray);
+  color: var(--nba-white);
   font-weight: 600;
   font-family: 'Segoe UI', sans-serif;
   letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .project-info {
@@ -72,12 +75,13 @@
 
 .project-info p {
   font-size: 1.2rem;
-  color: var(--nba-dark-gray);
+  color: var(--nba-white);
   text-align: center;
   line-height: 1.6;
   max-width: 600px;
   margin: 0 auto;
   font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* Enhanced NBA Logo Styling */

@@ -1,6 +1,31 @@
 .games-page {
   min-height: 100vh;
-  background: var(--nba-white);
+  background: transparent;
+  position: relative;
+  z-index: 20;
+}
+
+/* Games Header */
+.games-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.games-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: var(--nba-white);
+  font-weight: 900;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.games-header p {
+  font-size: 1.3rem;
+  color: var(--nba-white);
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* Calendar Navigation */
@@ -24,6 +49,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .nav-button:hover {
@@ -34,16 +60,20 @@
 .arrow {
   font-size: 1.2rem;
   font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* Calendar Week View */
 .calendar-week {
-  background: var(--nba-light-gray);
+  background: rgba(248, 249, 250, 0.1);
   border-radius: 25px;
   padding: 2.5rem;
   box-shadow: 0 15px 40px rgba(10, 20, 40, 0.1);
-  border: 1px solid rgba(29, 66, 138, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.5s ease;
+  backdrop-filter: blur(10px);
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 .week-header {
@@ -53,33 +83,38 @@
 
 .week-header h2 {
   font-size: 2.5rem;
-  color: var(--nba-navy);
+  color: var(--nba-white);
   font-weight: 900;
   font-family: 'Segoe UI', sans-serif;
   margin-bottom: 0.5rem;
   letter-spacing: -0.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .week-header p {
   font-size: 1.2rem;
-  color: var(--nba-dark-gray);
+  color: var(--nba-white);
   font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* Day Bubbles */
 .day-bubbles {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: center;
+  gap: 1.5rem;
   margin-bottom: 3rem;
   flex-wrap: wrap;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .day-bubble {
-  background: var(--nba-white);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,15 +122,17 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(10, 20, 40, 0.08);
-  border: 3px solid transparent;
+  border: 3px solid rgba(255, 255, 255, 0.3);
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(10px);
 }
 
 .day-bubble:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(10, 20, 40, 0.15);
   border-color: var(--nba-blue);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .day-bubble.selected {
@@ -107,7 +144,7 @@
 
 .day-bubble.today {
   border-color: var(--nba-red);
-  background: linear-gradient(135deg, var(--nba-white), var(--nba-light-gray));
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .day-bubble.today.selected {
@@ -121,6 +158,8 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 4px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  color: var(--nba-white);
 }
 
 .day-date {
@@ -128,6 +167,8 @@
   font-weight: 900;
   font-family: 'Segoe UI', sans-serif;
   line-height: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  color: var(--nba-white);
 }
 
 .games-count {
@@ -135,24 +176,31 @@
   font-weight: 600;
   opacity: 0.8;
   margin-top: 4px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  color: var(--nba-white);
 }
 
 /* Selected Day Games */
 .selected-day-games {
-  background: var(--nba-white);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 8px 25px rgba(10, 20, 40, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .selected-day-title {
   font-size: 1.8rem;
-  color: var(--nba-navy);
+  color: var(--nba-white);
   font-weight: 800;
   font-family: 'Segoe UI', sans-serif;
   text-align: center;
   margin-bottom: 2rem;
   letter-spacing: -0.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .games-list {
@@ -162,18 +210,20 @@
 }
 
 .game-card {
-  background: var(--nba-light-gray);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   padding: 1.5rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(10, 20, 40, 0.08);
-  border: 1px solid rgba(29, 66, 138, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .game-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(10, 20, 40, 0.15);
   border-color: var(--nba-blue);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .game-teams {
@@ -201,15 +251,17 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: var(--nba-white);
+  background: rgba(255, 255, 255, 0.1);
   border: 3px solid var(--nba-blue);
   transition: all 0.3s ease;
   overflow: hidden;
+  backdrop-filter: blur(10px);
 }
 
 .team-logo-container:hover {
   transform: scale(1.1);
   border-color: var(--nba-navy);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .team-logo-placeholder {
@@ -227,9 +279,10 @@
 
 .team-name {
   font-weight: 700;
-  color: var(--nba-navy);
+  color: var(--nba-white);
   font-size: 1.2rem;
   min-width: 100px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .vs-text {
@@ -238,6 +291,7 @@
   color: var(--nba-blue);
   margin: 0 1.5rem;
   font-family: 'Segoe UI', sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .game-details {
@@ -246,34 +300,40 @@
   gap: 2rem;
   margin-bottom: 1.5rem;
   padding: 1rem;
-  background: var(--nba-white);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .game-time, .game-venue {
-  color: var(--nba-dark-gray);
+  color: var(--nba-white);
   font-weight: 600;
   font-size: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .prediction-section {
-  background: var(--nba-white);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   padding: 1.5rem;
   text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .prediction, .confidence {
-  color: var(--nba-navy);
+  color: var(--nba-white);
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .confidence-bar {
   width: 100%;
   height: 8px;
-  background: var(--nba-light-gray);
+  background: rgba(248, 249, 250, 0.3);
   border-radius: 4px;
   overflow: hidden;
   margin-top: 1rem;
@@ -289,66 +349,79 @@
 .no-games {
   text-align: center;
   padding: 3rem;
-  color: var(--nba-dark-gray);
+  color: var(--nba-white);
   font-size: 1.2rem;
   font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* Last Week Section */
 .last-week-section {
-  background: var(--nba-light-gray);
+  background: rgba(248, 249, 250, 0.1);
   border-radius: 25px;
   padding: 2.5rem;
   box-shadow: 0 15px 40px rgba(10, 20, 40, 0.1);
-  border: 1px solid rgba(29, 66, 138, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.5s ease;
+  backdrop-filter: blur(10px);
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .prediction-stats {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   gap: 2rem;
   margin-bottom: 3rem;
   flex-wrap: wrap;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .stat-card {
-  background: var(--nba-white);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   padding: 2rem;
   text-align: center;
   box-shadow: 0 8px 25px rgba(10, 20, 40, 0.08);
-  border: 1px solid rgba(29, 66, 138, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
   min-width: 150px;
+  backdrop-filter: blur(10px);
 }
 
 .stat-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 35px rgba(10, 20, 40, 0.15);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .stat-number {
   font-size: 3rem;
   font-weight: 900;
-  color: var(--nba-navy);
+  color: var(--nba-white);
   font-family: 'Segoe UI', sans-serif;
   line-height: 1;
   margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .stat-label {
   font-size: 1.1rem;
-  color: var(--nba-dark-gray);
+  color: var(--nba-white);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .prediction-details {
-  background: var(--nba-white);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .prediction-row {
@@ -361,14 +434,15 @@
 
 .prediction-row:last-child {
   margin-bottom: 0;
-  border-top: 1px solid var(--nba-light-gray);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   padding-top: 1rem;
 }
 
 .prediction, .actual, .confidence {
-  color: var(--nba-navy);
+  color: var(--nba-white);
   font-size: 1rem;
   font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .prediction-result {
