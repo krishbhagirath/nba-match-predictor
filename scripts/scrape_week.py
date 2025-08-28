@@ -181,6 +181,31 @@ def fetch_schedule_df_live() -> pd.DataFrame:
     return parse_schedule_html(html)
 
 # ----------------------------
+# Time normalization (for sorting)
+# ----------------------------
+# def tip_minutes(s: str) -> int:
+#     """
+#     Normalize '7:30p' / '7:30 pm' / '7pm' / '10:30 PM' → minutes since midnight.
+#     Unknown/missing times get a large value so they sort last.
+#     """
+#     if s is None:
+#         return 10**9
+#     s = str(s).strip().lower()
+#     if s in ("", "tbd", "nan", "none"):
+#         return 10**9
+#     # normalize '7:30p' → '7:30pm', '7p' → '7pm'
+#     if s.endswith(("a", "p")):
+#         s += "m"
+#     try:
+#         t = datetime.strptime(s, "%I:%M%p").time()
+#     except ValueError:
+#         try:
+#             t = datetime.strptime(s, "%I%p").time()
+#         except ValueError:
+#             return 10**9
+#     return t.hour * 60 + t.minute
+
+# ----------------------------
 # Window helpers (NEXT 7 DAYS)
 # ----------------------------
 def next_7_days_or_offseason(df: pd.DataFrame, today: date) -> tuple[pd.DataFrame, date]:
@@ -205,9 +230,14 @@ def weekday_name(d: date) -> str:
 # Build UI JSON (next-7-days)
 # ----------------------------
 def to_ui_json(window: pd.DataFrame, start: date) -> dict:
-    # Group games by date in the 7-day window
+    # --- sort by earliest tip-off within each date ---
+    tmp = window.copy()
+    tmp["__tip"] = tmp["start_et"].apply(time_to_minutes)
+    tmp = tmp.sort_values(["game_date", "__tip"], kind="mergesort")
+
+    # Group games by date in the 7-day window (time-sorted)
     by_date = {}
-    for d, chunk in window.sort_values(["game_date", "start_et"]).groupby("game_date"):
+    for d, chunk in tmp.groupby("game_date"):
         games = []
         gid = 1
         for _, r in chunk.iterrows():
@@ -240,7 +270,7 @@ def to_ui_json(window: pd.DataFrame, start: date) -> dict:
                     "abbreviation": away_map["abbreviation"],
                     "city": away_map["city"]
                 },
-                "time": time_et,         # keep "7:30p" style
+                "time": time_et,         # keep original "7:30p" style for UI
                 "venue": arena,
                 "date": d.isoformat(),
                 "prediction": {
@@ -248,7 +278,8 @@ def to_ui_json(window: pd.DataFrame, start: date) -> dict:
                     "confidence": 0,
                     "spread": None,
                     "overUnder": None
-                },        # intentionally empty
+                },
+                "confidence": 0,         # UI fallback
                 "gameStatus": "scheduled"
             })
             gid += 1
@@ -256,24 +287,67 @@ def to_ui_json(window: pd.DataFrame, start: date) -> dict:
 
     # Build exactly seven consecutive day keys using the real weekday names in this rolling window
     current_week = {}
+    ordered_days = []
+    week_dates_iso = []
     for i in range(7):
         this_day = start + timedelta(days=i)
         label = weekday_name(this_day)   # "Tuesday", etc.
         current_week[label] = by_date.get(this_day, [])
+        ordered_days.append(label)
+        week_dates_iso.append(this_day.isoformat())
 
     total_games = sum(len(v) for v in current_week.values())
     payload = {
         "currentWeek": current_week,
+        # helpers for UI (optional to use)
+        "orderedDays": ordered_days,       # e.g. ["Tuesday", ..., "Monday"]
+        "weekDates": week_dates_iso,       # ["2025-10-21", ...]
         "metadata": {
             "lastUpdated": datetime.now(tz=LOCAL_TZ).isoformat(),
-            "weekStartDate": start.isoformat(),
-            "weekEndDate": (start + timedelta(days=6)).isoformat(),
+            "weekStartDate": week_dates_iso[0],
+            "weekEndDate": week_dates_iso[-1],
             "totalGames": total_games,
             "dataSource": "Basketball-Reference (parsed)",
             "version": "1.0"
         }
     }
     return payload
+
+
+def time_to_minutes(t) -> int:
+    """
+    Very simple parser: split on ':', compare hour then minute.
+    Handles a/p or am/pm. Unknown/blank -> very large number (sort to end).
+    """
+    if t is None:
+        return 10**9
+    s = str(t).strip().lower().replace(" ", "")
+    if s in ("", "nan", "tbd", "ppd"):
+        return 10**9
+    # strip trailing 'et'
+    if s.endswith("et"):
+        s = s[:-2]
+    # detect am/pm marker
+    ampm = "a" if "am" in s or s.endswith("a") else "p" if "pm" in s or s.endswith("p") else None
+    # remove am/pm letters for numeric split
+    s = s.replace("am", "").replace("pm", "").rstrip("ap")
+
+    if ":" not in s:
+        return 10**9
+    hh_str, mm_str = s.split(":", 1)
+    # minutes are always two digits at the start of mm_str
+    try:
+        hh = int(hh_str)
+        mm = int(mm_str[:2])
+    except ValueError:
+        return 10**9
+
+    # normalize 12-hour -> 24-hour
+    hh = hh % 12
+    if ampm == "p":
+        hh += 12
+    return hh * 60 + mm
+
 
 # ----------------------------
 # Main
@@ -305,7 +379,7 @@ def main():
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
     # 5) Console confirmation
-    print(f"Saved {sum(len(v) for v in payload['currentWeek'].values())} games "
+    print(f"Saved {payload['metadata']['totalGames']} games "
           f"for {payload['metadata']['weekStartDate']} → {payload['metadata']['weekEndDate']}")
     print(f"→ {OUTPUT_PATH}")
 

@@ -4,29 +4,6 @@
       {
         "id": 1,
         "homeTeam": {
-          "name": "Lakers",
-          "abbreviation": "LAL",
-          "city": "Los Angeles"
-        },
-        "awayTeam": {
-          "name": "Warriors",
-          "abbreviation": "GSW",
-          "city": "Golden State"
-        },
-        "time": "10:00p",
-        "venue": "Crypto.com Arena",
-        "date": "2025-10-21",
-        "prediction": {
-          "winner": "TBD",
-          "confidence": 0,
-          "spread": null,
-          "overUnder": null
-        },
-        "gameStatus": "scheduled"
-      },
-      {
-        "id": 2,
-        "homeTeam": {
           "name": "Thunder",
           "abbreviation": "OKC",
           "city": "Oklahoma City"
@@ -45,58 +22,37 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
+        "gameStatus": "scheduled"
+      },
+      {
+        "id": 2,
+        "homeTeam": {
+          "name": "Lakers",
+          "abbreviation": "LAL",
+          "city": "Los Angeles"
+        },
+        "awayTeam": {
+          "name": "Warriors",
+          "abbreviation": "GSW",
+          "city": "Golden State"
+        },
+        "time": "10:00p",
+        "venue": "Crypto.com Arena",
+        "date": "2025-10-21",
+        "prediction": {
+          "winner": "TBD",
+          "confidence": 0,
+          "spread": null,
+          "overUnder": null
+        },
+        "confidence": 0,
         "gameStatus": "scheduled"
       }
     ],
     "Wednesday": [
       {
         "id": 1,
-        "homeTeam": {
-          "name": "Trail Blazers",
-          "abbreviation": "POR",
-          "city": "Portland"
-        },
-        "awayTeam": {
-          "name": "Timberwolves",
-          "abbreviation": "MIN",
-          "city": "Minnesota"
-        },
-        "time": "10:00p",
-        "venue": "Moda Center",
-        "date": "2025-10-22",
-        "prediction": {
-          "winner": "TBD",
-          "confidence": 0,
-          "spread": null,
-          "overUnder": null
-        },
-        "gameStatus": "scheduled"
-      },
-      {
-        "id": 2,
-        "homeTeam": {
-          "name": "Suns",
-          "abbreviation": "PHX",
-          "city": "Phoenix"
-        },
-        "awayTeam": {
-          "name": "Kings",
-          "abbreviation": "SAC",
-          "city": "Sacramento"
-        },
-        "time": "10:00p",
-        "venue": "PHX Arena",
-        "date": "2025-10-22",
-        "prediction": {
-          "winner": "TBD",
-          "confidence": 0,
-          "spread": null,
-          "overUnder": null
-        },
-        "gameStatus": "scheduled"
-      },
-      {
-        "id": 3,
         "homeTeam": {
           "name": "Hornets",
           "abbreviation": "CHA",
@@ -116,10 +72,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 4,
+        "id": 2,
         "homeTeam": {
           "name": "Knicks",
           "abbreviation": "NYK",
@@ -139,10 +96,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 5,
+        "id": 3,
         "homeTeam": {
           "name": "Magic",
           "abbreviation": "ORL",
@@ -162,10 +120,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 6,
+        "id": 4,
         "homeTeam": {
           "name": "Celtics",
           "abbreviation": "BOS",
@@ -185,10 +144,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 7,
+        "id": 5,
         "homeTeam": {
           "name": "Hawks",
           "abbreviation": "ATL",
@@ -208,10 +168,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 8,
+        "id": 6,
         "homeTeam": {
           "name": "Bulls",
           "abbreviation": "CHI",
@@ -231,10 +192,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 9,
+        "id": 7,
         "homeTeam": {
           "name": "Grizzlies",
           "abbreviation": "MEM",
@@ -254,10 +216,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 10,
+        "id": 8,
         "homeTeam": {
           "name": "Bucks",
           "abbreviation": "MIL",
@@ -277,10 +240,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 11,
+        "id": 9,
         "homeTeam": {
           "name": "Jazz",
           "abbreviation": "UTA",
@@ -300,10 +264,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 12,
+        "id": 10,
         "homeTeam": {
           "name": "Mavericks",
           "abbreviation": "DAL",
@@ -323,35 +288,61 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
-      }
-    ],
-    "Thursday": [
+      },
       {
-        "id": 1,
+        "id": 11,
         "homeTeam": {
-          "name": "Warriors",
-          "abbreviation": "GSW",
-          "city": "Golden State"
+          "name": "Trail Blazers",
+          "abbreviation": "POR",
+          "city": "Portland"
         },
         "awayTeam": {
-          "name": "Nuggets",
-          "abbreviation": "DEN",
-          "city": "Denver"
+          "name": "Timberwolves",
+          "abbreviation": "MIN",
+          "city": "Minnesota"
         },
         "time": "10:00p",
-        "venue": "Chase Center",
-        "date": "2025-10-23",
+        "venue": "Moda Center",
+        "date": "2025-10-22",
         "prediction": {
           "winner": "TBD",
           "confidence": 0,
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 2,
+        "id": 12,
+        "homeTeam": {
+          "name": "Suns",
+          "abbreviation": "PHX",
+          "city": "Phoenix"
+        },
+        "awayTeam": {
+          "name": "Kings",
+          "abbreviation": "SAC",
+          "city": "Sacramento"
+        },
+        "time": "10:00p",
+        "venue": "PHX Arena",
+        "date": "2025-10-22",
+        "prediction": {
+          "winner": "TBD",
+          "confidence": 0,
+          "spread": null,
+          "overUnder": null
+        },
+        "confidence": 0,
+        "gameStatus": "scheduled"
+      }
+    ],
+    "Thursday": [
+      {
+        "id": 1,
         "homeTeam": {
           "name": "Pacers",
           "abbreviation": "IND",
@@ -371,104 +362,37 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
+        "gameStatus": "scheduled"
+      },
+      {
+        "id": 2,
+        "homeTeam": {
+          "name": "Warriors",
+          "abbreviation": "GSW",
+          "city": "Golden State"
+        },
+        "awayTeam": {
+          "name": "Nuggets",
+          "abbreviation": "DEN",
+          "city": "Denver"
+        },
+        "time": "10:00p",
+        "venue": "Chase Center",
+        "date": "2025-10-23",
+        "prediction": {
+          "winner": "TBD",
+          "confidence": 0,
+          "spread": null,
+          "overUnder": null
+        },
+        "confidence": 0,
         "gameStatus": "scheduled"
       }
     ],
     "Friday": [
       {
         "id": 1,
-        "homeTeam": {
-          "name": "Lakers",
-          "abbreviation": "LAL",
-          "city": "Los Angeles"
-        },
-        "awayTeam": {
-          "name": "Timberwolves",
-          "abbreviation": "MIN",
-          "city": "Minnesota"
-        },
-        "time": "10:00p",
-        "venue": "Crypto.com Arena",
-        "date": "2025-10-24",
-        "prediction": {
-          "winner": "TBD",
-          "confidence": 0,
-          "spread": null,
-          "overUnder": null
-        },
-        "gameStatus": "scheduled"
-      },
-      {
-        "id": 2,
-        "homeTeam": {
-          "name": "Trail Blazers",
-          "abbreviation": "POR",
-          "city": "Portland"
-        },
-        "awayTeam": {
-          "name": "Warriors",
-          "abbreviation": "GSW",
-          "city": "Golden State"
-        },
-        "time": "10:00p",
-        "venue": "Moda Center",
-        "date": "2025-10-24",
-        "prediction": {
-          "winner": "TBD",
-          "confidence": 0,
-          "spread": null,
-          "overUnder": null
-        },
-        "gameStatus": "scheduled"
-      },
-      {
-        "id": 3,
-        "homeTeam": {
-          "name": "Kings",
-          "abbreviation": "SAC",
-          "city": "Sacramento"
-        },
-        "awayTeam": {
-          "name": "Jazz",
-          "abbreviation": "UTA",
-          "city": "Utah"
-        },
-        "time": "10:00p",
-        "venue": "Golden 1 Center",
-        "date": "2025-10-24",
-        "prediction": {
-          "winner": "TBD",
-          "confidence": 0,
-          "spread": null,
-          "overUnder": null
-        },
-        "gameStatus": "scheduled"
-      },
-      {
-        "id": 4,
-        "homeTeam": {
-          "name": "Clippers",
-          "abbreviation": "LAC",
-          "city": "Los Angeles"
-        },
-        "awayTeam": {
-          "name": "Suns",
-          "abbreviation": "PHX",
-          "city": "Phoenix"
-        },
-        "time": "10:30p",
-        "venue": "Intuit Dome",
-        "date": "2025-10-24",
-        "prediction": {
-          "winner": "TBD",
-          "confidence": 0,
-          "spread": null,
-          "overUnder": null
-        },
-        "gameStatus": "scheduled"
-      },
-      {
-        "id": 5,
         "homeTeam": {
           "name": "Magic",
           "abbreviation": "ORL",
@@ -488,10 +412,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 6,
+        "id": 2,
         "homeTeam": {
           "name": "Nets",
           "abbreviation": "BKN",
@@ -511,10 +436,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 7,
+        "id": 3,
         "homeTeam": {
           "name": "Raptors",
           "abbreviation": "TOR",
@@ -534,10 +460,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 8,
+        "id": 4,
         "homeTeam": {
           "name": "Knicks",
           "abbreviation": "NYK",
@@ -557,10 +484,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 9,
+        "id": 5,
         "homeTeam": {
           "name": "Rockets",
           "abbreviation": "HOU",
@@ -580,10 +508,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 10,
+        "id": 6,
         "homeTeam": {
           "name": "Pelicans",
           "abbreviation": "NOP",
@@ -603,10 +532,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 11,
+        "id": 7,
         "homeTeam": {
           "name": "Grizzlies",
           "abbreviation": "MEM",
@@ -626,10 +556,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 12,
+        "id": 8,
         "homeTeam": {
           "name": "Mavericks",
           "abbreviation": "DAL",
@@ -649,6 +580,103 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
+        "gameStatus": "scheduled"
+      },
+      {
+        "id": 9,
+        "homeTeam": {
+          "name": "Lakers",
+          "abbreviation": "LAL",
+          "city": "Los Angeles"
+        },
+        "awayTeam": {
+          "name": "Timberwolves",
+          "abbreviation": "MIN",
+          "city": "Minnesota"
+        },
+        "time": "10:00p",
+        "venue": "Crypto.com Arena",
+        "date": "2025-10-24",
+        "prediction": {
+          "winner": "TBD",
+          "confidence": 0,
+          "spread": null,
+          "overUnder": null
+        },
+        "confidence": 0,
+        "gameStatus": "scheduled"
+      },
+      {
+        "id": 10,
+        "homeTeam": {
+          "name": "Trail Blazers",
+          "abbreviation": "POR",
+          "city": "Portland"
+        },
+        "awayTeam": {
+          "name": "Warriors",
+          "abbreviation": "GSW",
+          "city": "Golden State"
+        },
+        "time": "10:00p",
+        "venue": "Moda Center",
+        "date": "2025-10-24",
+        "prediction": {
+          "winner": "TBD",
+          "confidence": 0,
+          "spread": null,
+          "overUnder": null
+        },
+        "confidence": 0,
+        "gameStatus": "scheduled"
+      },
+      {
+        "id": 11,
+        "homeTeam": {
+          "name": "Kings",
+          "abbreviation": "SAC",
+          "city": "Sacramento"
+        },
+        "awayTeam": {
+          "name": "Jazz",
+          "abbreviation": "UTA",
+          "city": "Utah"
+        },
+        "time": "10:00p",
+        "venue": "Golden 1 Center",
+        "date": "2025-10-24",
+        "prediction": {
+          "winner": "TBD",
+          "confidence": 0,
+          "spread": null,
+          "overUnder": null
+        },
+        "confidence": 0,
+        "gameStatus": "scheduled"
+      },
+      {
+        "id": 12,
+        "homeTeam": {
+          "name": "Clippers",
+          "abbreviation": "LAC",
+          "city": "Los Angeles"
+        },
+        "awayTeam": {
+          "name": "Suns",
+          "abbreviation": "PHX",
+          "city": "Phoenix"
+        },
+        "time": "10:30p",
+        "venue": "Intuit Dome",
+        "date": "2025-10-24",
+        "prediction": {
+          "winner": "TBD",
+          "confidence": 0,
+          "spread": null,
+          "overUnder": null
+        },
+        "confidence": 0,
         "gameStatus": "scheduled"
       }
     ],
@@ -674,6 +702,7 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
@@ -697,6 +726,7 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
@@ -720,6 +750,7 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
@@ -743,6 +774,7 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
@@ -766,6 +798,7 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       }
     ],
@@ -791,6 +824,7 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
@@ -814,6 +848,7 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
@@ -837,6 +872,7 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
@@ -860,6 +896,7 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
@@ -883,6 +920,7 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
@@ -906,6 +944,7 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
@@ -929,6 +968,7 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
@@ -952,6 +992,7 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
@@ -975,58 +1016,13 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       }
     ],
     "Monday": [
       {
         "id": 1,
-        "homeTeam": {
-          "name": "Warriors",
-          "abbreviation": "GSW",
-          "city": "Golden State"
-        },
-        "awayTeam": {
-          "name": "Grizzlies",
-          "abbreviation": "MEM",
-          "city": "Memphis"
-        },
-        "time": "10:00p",
-        "venue": "Chase Center",
-        "date": "2025-10-27",
-        "prediction": {
-          "winner": "TBD",
-          "confidence": 0,
-          "spread": null,
-          "overUnder": null
-        },
-        "gameStatus": "scheduled"
-      },
-      {
-        "id": 2,
-        "homeTeam": {
-          "name": "Lakers",
-          "abbreviation": "LAL",
-          "city": "Los Angeles"
-        },
-        "awayTeam": {
-          "name": "Trail Blazers",
-          "abbreviation": "POR",
-          "city": "Portland"
-        },
-        "time": "10:30p",
-        "venue": "Crypto.com Arena",
-        "date": "2025-10-27",
-        "prediction": {
-          "winner": "TBD",
-          "confidence": 0,
-          "spread": null,
-          "overUnder": null
-        },
-        "gameStatus": "scheduled"
-      },
-      {
-        "id": 3,
         "homeTeam": {
           "name": "Pistons",
           "abbreviation": "DET",
@@ -1046,10 +1042,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 4,
+        "id": 2,
         "homeTeam": {
           "name": "76ers",
           "abbreviation": "PHI",
@@ -1069,10 +1066,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 5,
+        "id": 3,
         "homeTeam": {
           "name": "Bulls",
           "abbreviation": "CHI",
@@ -1092,10 +1090,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 6,
+        "id": 4,
         "homeTeam": {
           "name": "Rockets",
           "abbreviation": "HOU",
@@ -1115,10 +1114,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 7,
+        "id": 5,
         "homeTeam": {
           "name": "Pelicans",
           "abbreviation": "NOP",
@@ -1138,10 +1138,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 8,
+        "id": 6,
         "homeTeam": {
           "name": "Spurs",
           "abbreviation": "SAS",
@@ -1161,10 +1162,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 9,
+        "id": 7,
         "homeTeam": {
           "name": "Mavericks",
           "abbreviation": "DAL",
@@ -1184,10 +1186,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 10,
+        "id": 8,
         "homeTeam": {
           "name": "Jazz",
           "abbreviation": "UTA",
@@ -1207,10 +1210,11 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
         "gameStatus": "scheduled"
       },
       {
-        "id": 11,
+        "id": 9,
         "homeTeam": {
           "name": "Timberwolves",
           "abbreviation": "MIN",
@@ -1230,12 +1234,79 @@
           "spread": null,
           "overUnder": null
         },
+        "confidence": 0,
+        "gameStatus": "scheduled"
+      },
+      {
+        "id": 10,
+        "homeTeam": {
+          "name": "Warriors",
+          "abbreviation": "GSW",
+          "city": "Golden State"
+        },
+        "awayTeam": {
+          "name": "Grizzlies",
+          "abbreviation": "MEM",
+          "city": "Memphis"
+        },
+        "time": "10:00p",
+        "venue": "Chase Center",
+        "date": "2025-10-27",
+        "prediction": {
+          "winner": "TBD",
+          "confidence": 0,
+          "spread": null,
+          "overUnder": null
+        },
+        "confidence": 0,
+        "gameStatus": "scheduled"
+      },
+      {
+        "id": 11,
+        "homeTeam": {
+          "name": "Lakers",
+          "abbreviation": "LAL",
+          "city": "Los Angeles"
+        },
+        "awayTeam": {
+          "name": "Trail Blazers",
+          "abbreviation": "POR",
+          "city": "Portland"
+        },
+        "time": "10:30p",
+        "venue": "Crypto.com Arena",
+        "date": "2025-10-27",
+        "prediction": {
+          "winner": "TBD",
+          "confidence": 0,
+          "spread": null,
+          "overUnder": null
+        },
+        "confidence": 0,
         "gameStatus": "scheduled"
       }
     ]
   },
+  "orderedDays": [
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+    "Monday"
+  ],
+  "weekDates": [
+    "2025-10-21",
+    "2025-10-22",
+    "2025-10-23",
+    "2025-10-24",
+    "2025-10-25",
+    "2025-10-26",
+    "2025-10-27"
+  ],
   "metadata": {
-    "lastUpdated": "2025-08-27T18:12:48.824765-04:00",
+    "lastUpdated": "2025-08-28T00:28:47.425028-04:00",
     "weekStartDate": "2025-10-21",
     "weekEndDate": "2025-10-27",
     "totalGames": 53,
