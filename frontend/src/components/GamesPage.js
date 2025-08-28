@@ -6,10 +6,37 @@ import {
 } from 'react-nba-logos';
 import './GamesPage.css';
 
+
+// React tracks state variables, not reg variables => state variables force app to rerender when values are updated
+
 const GamesPage = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [viewMode, setViewMode] = useState('current'); // 'current' or 'lastWeek'
   const [slideDirection, setSlideDirection] = useState('');
+  const [gamesData, setGamesData] = useState(null); // when rerender is called, call on setGamesData() to update variable gamesData
+  const [loading, setLoading] = useState(true); // Loading state
+
+  // Load JSON data when component mounts
+  useEffect(() => {
+    const fetchGamesData = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('/data/upcoming.json');
+        if (!response.ok) {
+          throw new Error('Failed to fetch games data');
+        }
+        const data = await response.json();
+        setGamesData(data);
+      } catch (error) {
+        console.error('Error loading games data:', error);
+        // Keep using hardcoded data if JSON fails
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGamesData();
+  }, []);
 
   // Team logo mapping
   const teamLogos = {
@@ -66,94 +93,94 @@ const GamesPage = () => {
   };
 
   // Sample data for current week games with predictions
-  const currentWeekGames = {
-    'Monday': [
-      {
-        id: 1,
-        homeTeam: { name: "Lakers", abbreviation: "LAL" },
-        awayTeam: { name: "Warriors", abbreviation: "GSW" },
-        time: "7:30 PM",
-        venue: "Crypto.com Arena",
-        prediction: "Lakers Win",
-        confidence: 78
-      },
-      {
-        id: 2,
-        homeTeam: { name: "Celtics", abbreviation: "BOS" },
-        awayTeam: { name: "Heat", abbreviation: "MIA" },
-        time: "6:00 PM",
-        venue: "TD Garden",
-        prediction: "Celtics Win",
-        confidence: 82
-      }
-    ],
-    'Tuesday': [
-      {
-        id: 3,
-        homeTeam: { name: "Bulls", abbreviation: "CHI" },
-        awayTeam: { name: "Bucks", abbreviation: "MIL" },
-        time: "8:00 PM",
-        venue: "United Center",
-        prediction: "Bucks Win",
-        confidence: 71
-      }
-    ],
-    'Wednesday': [
-      {
-        id: 4,
-        homeTeam: { name: "Nets", abbreviation: "BKN" },
-        awayTeam: { name: "Knicks", abbreviation: "NYK" },
-        time: "7:30 PM",
-        venue: "Barclays Center",
-        prediction: "Nets Win",
-        confidence: 65
-      }
-    ],
-    'Thursday': [
-      {
-        id: 5,
-        homeTeam: { name: "Suns", abbreviation: "PHX" },
-        awayTeam: { name: "Clippers", abbreviation: "LAC" },
-        time: "10:00 PM",
-        venue: "Footprint Center",
-        prediction: "Suns Win",
-        confidence: 73
-      }
-    ],
-    'Friday': [
-      {
-        id: 6,
-        homeTeam: { name: "Mavericks", abbreviation: "DAL" },
-        awayTeam: { name: "Rockets", abbreviation: "HOU" },
-        time: "8:30 PM",
-        venue: "American Airlines Center",
-        prediction: "Mavericks Win",
-        confidence: 69
-      }
-    ],
-    'Saturday': [
-      {
-        id: 7,
-        homeTeam: { name: "Trail Blazers", abbreviation: "POR" },
-        awayTeam: { name: "Jazz", abbreviation: "UTA" },
-        time: "9:00 PM",
-        venue: "Moda Center",
-        prediction: "Jazz Win",
-        confidence: 62
-      }
-    ],
-    'Sunday': [
-      {
-        id: 8,
-        homeTeam: { name: "Lakers", abbreviation: "LAL" },
-        awayTeam: { name: "Celtics", abbreviation: "BOS" },
-        time: "3:30 PM",
-        venue: "Crypto.com Arena",
-        prediction: "Lakers Win",
-        confidence: 55
-      }
-    ]
-  };
+  // const currentWeekGames = {
+  //   'Monday': [
+  //     {
+  //       id: 1,
+  //       homeTeam: { name: "Lakers", abbreviation: "LAL" },
+  //       awayTeam: { name: "Warriors", abbreviation: "GSW" },
+  //       time: "7:30 PM",
+  //       venue: "Crypto.com Arena",
+  //       prediction: "Lakers Win",
+  //       confidence: 78
+  //     },
+  //     {
+  //       id: 2,
+  //       homeTeam: { name: "Celtics", abbreviation: "BOS" },
+  //       awayTeam: { name: "Heat", abbreviation: "MIA" },
+  //       time: "6:00 PM",
+  //       venue: "TD Garden",
+  //       prediction: "Celtics Win",
+  //       confidence: 82
+  //     }
+  //   ],
+  //   'Tuesday': [
+  //     {
+  //       id: 3,
+  //       homeTeam: { name: "Bulls", abbreviation: "CHI" },
+  //       awayTeam: { name: "Bucks", abbreviation: "MIL" },
+  //       time: "8:00 PM",
+  //       venue: "United Center",
+  //       prediction: "Bucks Win",
+  //       confidence: 71
+  //     }
+  //   ],
+  //   'Wednesday': [
+  //     {
+  //       id: 4,
+  //       homeTeam: { name: "Nets", abbreviation: "BKN" },
+  //       awayTeam: { name: "Knicks", abbreviation: "NYK" },
+  //       time: "7:30 PM",
+  //       venue: "Barclays Center",
+  //       prediction: "Nets Win",
+  //       confidence: 65
+  //     }
+  //   ],
+  //   'Thursday': [
+  //     {
+  //       id: 5,
+  //       homeTeam: { name: "Suns", abbreviation: "PHX" },
+  //       awayTeam: { name: "Clippers", abbreviation: "LAC" },
+  //       time: "10:00 PM",
+  //       venue: "Footprint Center",
+  //       prediction: "Suns Win",
+  //       confidence: 73
+  //     }
+  //   ],
+  //   'Friday': [
+  //     {
+  //       id: 6,
+  //       homeTeam: { name: "Mavericks", abbreviation: "DAL" },
+  //       awayTeam: { name: "Rockets", abbreviation: "HOU" },
+  //       time: "8:30 PM",
+  //       venue: "American Airlines Center",
+  //       prediction: "Mavericks Win",
+  //       confidence: 69
+  //     }
+  //   ],
+  //   'Saturday': [
+  //     {
+  //       id: 7,
+  //       homeTeam: { name: "Trail Blazers", abbreviation: "POR" },
+  //       awayTeam: { name: "Jazz", abbreviation: "UTA" },
+  //       time: "9:00 PM",
+  //       venue: "Moda Center",
+  //       prediction: "Jazz Win",
+  //       confidence: 62
+  //     }
+  //   ],
+  //   'Sunday': [
+  //     {
+  //       id: 8,
+  //       homeTeam: { name: "Lakers", abbreviation: "LAL" },
+  //       awayTeam: { name: "Celtics", abbreviation: "BOS" },
+  //       time: "3:30 PM",
+  //       venue: "Crypto.com Arena",
+  //       prediction: "Lakers Win",
+  //       confidence: 55
+  //     }
+  //   ]
+  // };
 
   // Sample data for last week's predictions
   const lastWeekGames = [
@@ -233,8 +260,9 @@ const GamesPage = () => {
   };
 
   const getSelectedDayGames = () => {
+    // If JSON data loaded, use it; otherwise fall back to hardcoded data
     const dayName = dayNames[selectedDate.getDay() === 0 ? 6 : selectedDate.getDay() - 1];
-    return currentWeekGames[dayName] || [];
+    return gamesData ? (gamesData.currentWeek[dayName] || []) : [];
   };
 
   const getTeamLogo = (teamName) => {
@@ -308,7 +336,7 @@ const GamesPage = () => {
             <div className="day-bubbles">
               {weekDates.map((date, index) => {
                 const dayName = dayNames[index];
-                const games = currentWeekGames[dayName] || [];
+                const games = gamesData ? (gamesData.currentWeek[dayName] || []) : [];
                 const isSelected = date.toDateString() === selectedDate.toDateString();
                 const isToday = date.toDateString() === new Date().toDateString();
                 
@@ -359,15 +387,16 @@ const GamesPage = () => {
                       
                       <div className="prediction-section">
                         <div className="prediction">
-                          <strong>Prediction:</strong> {game.prediction}
+                          <strong>Prediction:</strong> {game.prediction?.winner || game.prediction}
                         </div>
                         <div className="confidence">
-                          <strong>Confidence:</strong> {game.confidence}%
+                          <strong>Confidence:</strong> {game.prediction?.confidence || game.confidence}%
                         </div>
+                        
                         <div className="confidence-bar">
                           <div 
                             className="confidence-fill" 
-                            style={{ width: `${game.confidence}%` }}
+                            style={{ width: `${game.prediction?.confidence || game.confidence}%` }}
                           ></div>
                         </div>
                       </div>
@@ -428,10 +457,10 @@ const GamesPage = () => {
                   <div className="prediction-details">
                     <div className="prediction-row">
                       <div className="prediction">
-                        <strong>Prediction:</strong> {game.prediction}
+                        <strong>Prediction:</strong> {game.prediction?.winner || game.prediction}
                       </div>
                       <div className="confidence">
-                        <strong>Confidence:</strong> {game.confidence}%
+                        <strong>Confidence:</strong> {game.prediction?.confidence || game.confidence}%
                       </div>
                     </div>
                     <div className="prediction-row">
